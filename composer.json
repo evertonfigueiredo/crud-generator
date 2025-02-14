@@ -1,5 +1,5 @@
 {
-    "name": "evertondev/crud-generator",
+    "name": "evertonfigueiredo/crud-generator",
     "description": "Laravel CRUD Generator - Modified version of Ibex/CrudGenerator",
     "license": "MIT",
     "authors": [
@@ -19,13 +19,13 @@
     },
     "autoload": {
         "psr-4": {
-            "EvertonDev\\CrudGenerator\\": "src/"
+            "EvertonFigueiredo\\CrudGenerator\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "EvertonDev\\CrudGenerator\\CrudServiceProvider"
+                "EvertonFigueiredo\\CrudGenerator\\CrudServiceProvider"
             ]
         }
     },

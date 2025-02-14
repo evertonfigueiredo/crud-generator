@@ -1,6 +1,6 @@
 <?php
 
-namespace EvertonDev\CrudGenerator;
+namespace EvertonFigueiredo\CrudGenerator;
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;

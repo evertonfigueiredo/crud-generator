@@ -1,6 +1,6 @@
 <?php
 
-namespace EvertonDev\CrudGenerator\Commands;
+namespace EvertonFigueiredo\CrudGenerator\Commands;
 
 use Exception;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;

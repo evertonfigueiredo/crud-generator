@@ -1,8 +1,8 @@
 <?php
 
-namespace EvertonDev\CrudGenerator;
+namespace EvertonFigueiredo\CrudGenerator;
 
-use Ibex\CrudGenerator\Commands\CrudGenerator;
+use EvertonFigueiredo\CrudGenerator\Commands\CrudGenerator;
 use Illuminate\Support\ServiceProvider;
 
 /**

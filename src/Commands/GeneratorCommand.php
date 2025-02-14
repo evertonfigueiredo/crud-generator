@@ -1,9 +1,9 @@
 <?php
 
-namespace EvertonDev\CrudGenerator\Commands;
+namespace EvertonFigueiredo\CrudGenerator\Commands;
 
 use Exception;
-use Ibex\CrudGenerator\ModelGenerator;
+use EvertonFigueiredo\CrudGenerator\ModelGenerator;
 use Illuminate\Console\Command;
 use Illuminate\Contracts\Console\PromptsForMissingInput;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
