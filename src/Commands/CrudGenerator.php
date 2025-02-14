@@ -106,7 +106,7 @@ class CrudGenerator extends GeneratorCommand
                 "Route::get('/{$this->_getRoute()}', \\$this->livewireNamespace\\{$replacements['{{modelNamePluralUpperCase}}']}\Index::class)->name('{$this->_getRoute()}.index');",
                 "Route::get('/{$this->_getRoute()}/create', \\$this->livewireNamespace\\{$replacements['{{modelNamePluralUpperCase}}']}\Create::class)->name('{$this->_getRoute()}.create');",
                 "Route::get('/{$this->_getRoute()}/show/{{$replacements['{{modelNameLowerCase}}']}}', \\$this->livewireNamespace\\{$replacements['{{modelNamePluralUpperCase}}']}\Show::class)->name('{$this->_getRoute()}.show');",
-                "Route::get('/{$this->_getRoute()}/update/{{$replacements['{{modelNameLowerCase}}']}}', \\$this->livewireNamespace\\{$replacements['{{modelNamePluralUpperCase}}']}\Edit::class)->name('{$this->_getRoute()}.edit');",
+                "Route::get('/{$this->_getRoute()}/update/{{$replacements['{{modelNameLowerCase}}']}}', \\$this->livewireNamespace\\{$replacements['{{modelNamePluralUpperCase}}']}\'::class)->name('{$this->_getRoute()}.edit');",
             ],
             'api' => [
                 "Route::apiResource('".$this->_getRoute()."', {$this->name}Controller::class);",
@@ -182,7 +182,7 @@ class CrudGenerator extends GeneratorCommand
         $folder = ucfirst(Str::plural($this->name));
         $replace = array_merge($this->buildReplacements(), $this->modelReplacements());
 
-        foreach (['Index', 'Show', 'Edit', 'Create'] as $component) {
+        foreach (['Index', 'Show', ''', 'Create'] as $component) {
             $componentPath = $this->_getLivewirePath($folder.'/'.$component);
 
             $componentTemplate = str_replace(

@@ -50,7 +50,7 @@ Para `Livewire`, adicione as rotas abaixo:
 Route::get('/bancos', \App\Livewire\Bancos\Index::class)->name('bancos.index');
 Route::get('/bancos/create', \App\Livewire\Bancos\Create::class)->name('bancos.create');
 Route::get('/bancos/show/{banco}', \App\Livewire\Bancos\Show::class)->name('bancos.show');
-Route::get('/bancos/update/{banco}', \App\Livewire\Bancos\Edit::class)->name('bancos.edit');
+Route::get('/bancos/update/{banco}', \App\Livewire\Bancos\'::class)->name('bancos.edit');
 ```
 
 Para `api`, adicione as rotas abaixo:
