@@ -21,7 +21,7 @@ Este é o melhor gerador de CRUD para projetos Laravel, mesmo em instalações e
 ## Instalação
 1 - Instale o pacote:
 ```
-composer require ibex/crud-generator --dev
+composer require evertonfigueiredo/crud-generator --dev
 ```
 2 - Publique a configuração padrão do pacote (opcional):
 ```
@@ -30,7 +30,7 @@ php artisan vendor:publish --tag=crud
 
 **Para versões mais antigas do Laravel (<10.x), use a [v1.x](https://github.com/awais-vteams/laravel-crud-generator/tree/v1.6):**
 ```
-composer require ibex/crud-generator:1.6 --dev
+composer require evertonfigueiredo/crud-generator:1.6 --dev
 ```
 
 ## Uso
