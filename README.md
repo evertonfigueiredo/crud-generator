@@ -1,141 +1,141 @@
 ![Laravel Crud Generator](https://banners.beyondco.de/Laravel%20CRUD.png?theme=dark&packageManager=composer+require&packageName=ibex%2Fcrud-generator&pattern=architect&style=style_1&description=Laravel+CRUD+Generator&md=1&showWatermark=0&fontSize=100px&images=gift)
 
-
 ![Packagist](https://img.shields.io/badge/Packagist-v2-green.svg?style=flat-square)
 ![Licence](https://img.shields.io/badge/Licence-MIT-green.svg?style=flat-square)
 ![StyleCI](https://img.shields.io/badge/StyleCI-pass-green.svg?style=flat-square)
 
+Este pacote **Laravel CRUD Generator v2.x** gera automaticamente **Controllers**, **Models** (com relações Eloquent) e **Views** em **Bootstrap** ou **Tailwind CSS** para o desenvolvimento de suas aplicações com um único comando. A nova versão `v2.x` oferece opções de stack como `bootstrap`, `tailwind`, `livewire` (as views do Livewire serão geradas em **Tailwind CSS**) e `API` apenas.
 
-This Laravel CRUD Generator v2.x package provides and generates Controller, Model (with eloquent relations), and Views in **Bootstrap**/**Tailwind CSS** for the development of your applications with a single command. This new `v2.x` will have stack options like `bootstrap`, `tailwind`, `livewire`(Livewire views will be generated in **Tailwind** CSS), and `API` only.
+- Cria **Models** com relações Eloquent.
+- Cria **Controllers** com todos os recursos.
+- Cria **API Controllers** com todas as requisições.
+- Cria **Components** com todos os recursos para Livewire.
+- Cria **views** em Bootstrap ou Tailwind.
 
-- Will create **Model** with Eloquent relations
-- Will create **Controller** with all resources
-- Will create **API Controllers** with all requests
-- Will create **Component** with all resources for Livewire
-- Will create **views** in Bootstrap/Tailwind
+Este é o melhor gerador de CRUD para projetos Laravel, mesmo em instalações em branco. Ele instala automaticamente o starter kit [laravel/breeze](https://github.com/laravel/breeze) ou [laravel/ui](https://github.com/laravel/ui) (para Bootstrap 5) em instalações novas do Laravel.
 
-This is the best crud generator for a blank Laravel project installation too. This will auto install the starter kit [laravel/breeze](https://github.com/laravel/breeze) or [laravel/ui](https://github.com/laravel/ui) (for bootstrap 5) for blank Laravel installation.
+## Requisitos
+- Laravel >= 10.x
+- PHP >= 8.1
 
-## Requirements
-    Laravel >= 10.x
-    PHP >= 8.1
-
-## Installation
-1 - Install
+## Instalação
+1 - Instale o pacote:
 ```
 composer require ibex/crud-generator --dev
 ```
-2- Publish the default package's config (optional)
+2 - Publique a configuração padrão do pacote (opcional):
 ```
 php artisan vendor:publish --tag=crud
 ```
 
-
-**For older Laravel(<10.x) versions please use [v1.x](https://github.com/awais-vteams/laravel-crud-generator/tree/v1.6)**
+**Para versões mais antigas do Laravel (<10.x), use a [v1.x](https://github.com/awais-vteams/laravel-crud-generator/tree/v1.6):**
 ```
 composer require ibex/crud-generator:1.6 --dev
 ```
 
-## Usage
+## Uso
 ```
-php artisan make:crud {table_name}
+php artisan make:crud {nome_da_tabela}
 
-php artisan make:crud banks
-```
-
-Add a route in `web.php`
-```
-Route::resource('banks', BankController::class);
+php artisan make:crud bancos
 ```
 
-For `Livewire` add routes below
+Adicione uma rota no `web.php`:
 ```
-Route::get('/banks', \App\Livewire\Banks\Index::class)->name('banks.index');
-Route::get('/banks/create', \App\Livewire\Banks\Create::class)->name('banks.create');
-Route::get('/banks/show/{bank}', \App\Livewire\Banks\Show::class)->name('banks.show');
-Route::get('/banks/update/{bank}', \App\Livewire\Banks\Edit::class)->name('banks.edit');
+Route::resource('bancos', BancoController::class);
 ```
 
-For `api` add routes below
+Para `Livewire`, adicione as rotas abaixo:
 ```
-Route::apiResource('banks', BankController::class);
+Route::get('/bancos', \App\Livewire\Bancos\Index::class)->name('bancos.index');
+Route::get('/bancos/create', \App\Livewire\Bancos\Create::class)->name('bancos.create');
+Route::get('/bancos/show/{banco}', \App\Livewire\Bancos\Show::class)->name('bancos.show');
+Route::get('/bancos/update/{banco}', \App\Livewire\Bancos\Edit::class)->name('bancos.edit');
 ```
 
-Route name in plural slug case.
+Para `api`, adicione as rotas abaixo:
+```
+Route::apiResource('bancos', BancoController::class);
+```
 
-#### Options
+O nome da rota deve estar no plural e em formato slug.
+
+#### Opções
 - Tech Stack
 
   <img width="535" alt="image" src="https://github.com/awais-vteams/laravel-crud-generator/assets/10154558/c1e2e2a6-7fcd-4c4a-a393-56d8fe6eb231">
 ```
-php artisan make:crud {table_name} {bootstrap,tailwind,livewire,api}
+php artisan make:crud {nome_da_tabela} {bootstrap,tailwind,livewire,api}
 
-php artisan make:crud banks bootstrap  //This will create views in Bootstrap 5 using Blade
-php artisan make:crud banks tailwind   //This will create views in Tailwind css using Blade
-php artisan make:crud banks livewire   //This will create views in Tailwind css with Livewire components
-php artisan make:crud banks api        //This will create API only controllers
+php artisan make:crud bancos bootstrap  //Isso criará views em Bootstrap 5 usando Blade
+php artisan make:crud bancos tailwind   //Isso criará views em Tailwind CSS usando Blade
+php artisan make:crud bancos livewire   //Isso criará views em Tailwind CSS com componentes Livewire
+php artisan make:crud bancos api        //Isso criará apenas controllers para API
 ```
- - Custom Route
+- Rota personalizada:
 ```
-php artisan make:crud {table_name} --route={route_name}
+php artisan make:crud {nome_da_tabela} --route={nome_da_rota}
 ```
 
-
-## Examples
+## Exemplos
 
 *Model*
 <img width="100%" alt="image" src="https://github.com/awais-vteams/laravel-crud-generator/assets/10154558/6b3c3dc1-a983-4893-a45c-94dbb8da50fc">
 
-
 *Controller*
 <img width="100%" alt="image" src="https://github.com/awais-vteams/laravel-crud-generator/assets/10154558/6a7948ed-90b7-46f9-a8b3-abb56fe0fb71">
 
-*Livewire component*
+*Componente Livewire*
 <img width="100%" alt="image" src="https://github.com/awais-vteams/laravel-crud-generator/assets/10154558/e4c3bca5-f27a-41a8-a5bd-00c51b156235">
 
-*API only controller*
+*Controller apenas para API*
 
 <img width="500" alt="image" src="https://github.com/awais-vteams/laravel-crud-generator/assets/10154558/a42329a8-58e7-49ef-8e21-b6227555542b">
-
 
 *Tailwind CSS*
 <img width="100%" alt="image" src="https://github.com/awais-vteams/laravel-crud-generator/assets/10154558/b5ca686a-5a3b-4c60-849c-e757d16dc1a0">
 
-
 *Bootstrap*
 ![Listing](https://i.imgur.com/UH5XGuw.png)
 
-
-*Tailwind Form*
+*Formulário em Tailwind*
 
 <img width="756" alt="image" src="https://github.com/awais-vteams/laravel-crud-generator/assets/10154558/b7d437ac-5d2b-4673-80ab-c2f7eb88e835">
 
-*Bootstrap Form*
+*Formulário em Bootstrap*
 ![Form](https://i.imgur.com/poRiZRO.png)
 
+## Personalização  
+Você pode personalizar 100% das views geradas. Para isso, siga os passos abaixo:    
 
-## Personalize  
-You have the possibility of 100% customizing the generated views, this is achieved in the following way:    
-
-- Run this command `php artisan vendor:publish --tag=crud` this will create the `crud.php` file in your config/ folder.
-- Update the variable `stub_path`, to your own stub folder like `'stub_path' => resource_path('stubs/'),`  
-- Copy the stubs files from package
+- Execute o comando `php artisan vendor:publish --tag=crud`. Isso criará o arquivo `crud.php` na pasta `config/`.
+- Atualize a variável `stub_path` para apontar para sua própria pasta de stubs, por exemplo: `'stub_path' => resource_path('stubs/'),`.  
+- Copie os arquivos de stubs do pacote:
 ```
 php artisan vendor:publish --tag=stubs-crud
 ```
-- Update your changes in your stub files. (you can delete extra files/folders if you are not using them).  
-- Run the command for crud generation and you'll get the updated views.  
+- Faça suas alterações nos arquivos de stubs. (Você pode excluir arquivos ou pastas extras se não for usá-los).  
+- Execute o comando para gerar o CRUD e você obterá as views atualizadas.  
 
+---
 
+## Modificações para Português (pt-br)
+Estou modificando esta biblioteca para gerar CRUDs em português (pt-br). As views, mensagens e estruturas estarão adaptadas para o idioma português do Brasil, facilitando o desenvolvimento de aplicações para o mercado brasileiro.
 
+---
 
+## Autor
 
-## Author
+M Awais // [Envie um e-mail](mailto:asargodha@gmail.com)
 
-M Awais // [Email Me](mailto:asargodha@gmail.com)
+Contrate-me no [LinkedIn](https://www.linkedin.com/in/asargodha/)
 
-Hire Me [LinkedIn](https://www.linkedin.com/in/asargodha/)
+### Tradutor
 
-[Buy me a Coffee](https://ko-fi.com/C0C8VT1M)
+Everton  Figueiredo// [Envie um e-mail](mailto:contato@evertonfigueiredo.com.br)
 
-[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/C0C8VT1M)
+Contrate-me no [LinkedIn](https://www.linkedin.com/in/everton-figueiredo/)
+
+---
+
+Se precisar de mais ajustes ou detalhes, é só avisar! 😊
